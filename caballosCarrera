@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #container {
+      width: 1065px;
+      height: 50px;
+      position: relative;
+      background: yellow;
+    }
+    #animate {
+
+        width: 66px;
+        height: 50px;
+        position: absolute;
+        background-image: url(caballo-21.gif);
+
+        }
+
+    #container1 {
+      width: 1065px;
+      height: 50px;
+      position: relative;
+      background: yellow;
+    }
+    #animate1 {
+
+        width: 66px;
+        height: 50px;
+        position: absolute;
+        background-image: url(caballo-21.gif);
+
+        }
+    </style>
+<body>
+    <h1>Bienvenido a las carreras</h1>
+    <input type="button" value="arre!"id="btnjugar"    onclick="myMove()">
+
+    <div id ="container">
+        <div id ="animate"></div>
+      </div>
+
+    <input type="button" value="arre!"id="btnjugar1"   onclick="myMove1()">
+
+
+    <div id ="container1">
+        <div id ="animate1"></div>
+      </div>
+
+
+    <input type="button" value="Ganador"id="mostargandor">
+
+
+
+
+
+  <!--<p><button onclick="myMove()">Click Me</button></p> -->
+
+
+
+
+</body>
+<script src="js/caballo.js"></script>
+
+<script>
+
+//creo jugador humano
+var caballo = new Caballo("Rosinante","Quiteño");
+
+//creo jugador bot
+var robot= new Caballo("Tiro al Blanco","robot");
+
+//juega
+document.getElementById("btnjugar")
+    .addEventListener("click",function(){
+            caballo.avanzar();
+            
+    });
+document.getElementById("btnjugar1")
+    .addEventListener("click",function(){
+            robot.avanzar();
+    });
+
+
+
+
+document.getElementById("mostargandor")
+    .addEventListener("dblclick",function(){
+        if(caballo.totalRecorrido()>robot.totalRecorrido()){
+            console.log(caballo.nombre+" es ganador");
+        }else{
+            console.log(robot.nombre+" es ganador");
+        }
+        console.log("________________________");
+            console.log("resulado");
+            console.log(caballo.nombre + " recorrio"+ caballo.totalRecorrido());
+            console.log(robot.nombre + " recorrio"+ robot.totalRecorrido());
+    });
+
+</script>
+
+
+</html> 
+
